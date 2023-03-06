@@ -3,6 +3,7 @@ import 'package:my_friend_list/list_view_detail_screen.dart';
 import 'package:my_friend_list/list_view_screen.dart';
 import 'package:my_friend_list/grid_view_screen.dart';
 import 'package:my_friend_list/model/route_const.dart';
+import 'package:my_friend_list/style/style_helper.dart';
 
 void main() => runApp(MyApp());
 
@@ -16,12 +17,52 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Friends List App',
+      darkTheme: ThemeData(
+        primarySwatch: Colors.blue,
+        textTheme: TextTheme(
+          headlineMedium: StyleHelper.headerTextStyle,
+        ),
+        scaffoldBackgroundColor: Colors.black,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.red,
+          centerTitle: true,
+        ),
+        elevatedButtonTheme: const ElevatedButtonThemeData(
+            style: ButtonStyle(
+                elevation: MaterialStatePropertyAll(6.0),
+                backgroundColor: MaterialStatePropertyAll(Colors.orange),
+                textStyle: MaterialStatePropertyAll(TextStyle(
+                  fontSize: 20.0,
+                  fontStyle: FontStyle.italic,
+                ))
+            )
+        ),
+      ),
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        textTheme: TextTheme(
+          headlineMedium: StyleHelper.headerTextStyle,
+        ),
+        scaffoldBackgroundColor: Colors.white,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.green,
+          centerTitle: true,
+        ),
+        elevatedButtonTheme: const ElevatedButtonThemeData(
+         style: ButtonStyle(
+           elevation: MaterialStatePropertyAll(6.0),
+           backgroundColor: MaterialStatePropertyAll(Colors.orange),
+           textStyle: MaterialStatePropertyAll(TextStyle(
+             fontSize: 20.0,
+             fontStyle: FontStyle.italic,
+           ))
+         )
+        ),
       ),
       routes: {
         routeConst.initialRouteListScreen: (context) => const MyHomePage(),
-        routeConst.listDetailScreen: (context) => const ProfileDetail(title: 'Profile Detail')
+        routeConst.listDetailScreen: (context) =>
+            const ProfileDetail(title: 'Profile Detail')
       },
       initialRoute: routeConst.initialRouteListScreen,
     );

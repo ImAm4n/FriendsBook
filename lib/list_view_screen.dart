@@ -16,6 +16,7 @@ class _MyFriendsListPageState extends State<MyFriendsListPage> {
   final RouteConst routeConst = RouteConst();
   Color iconColor = Colors.white;
 
+  // async function to navigate to detail screen and wait to retrieve the data
   Future<void> _navigate(BuildContext context, User user, int index) async {
     final bool? isAccepted = await Navigator.pushNamed(
       context,

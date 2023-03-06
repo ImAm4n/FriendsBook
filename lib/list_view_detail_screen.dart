@@ -16,7 +16,8 @@ class ProfileDetail extends StatelessWidget {
       },
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.blue.shade500,
+          /*centerTitle: false,
+          backgroundColor: Colors.blue.shade500,*/
           title: Text(title),
           leading: BackButton(
             onPressed: () {
@@ -86,16 +87,19 @@ class ProfileDetail extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   ElevatedButton(
-                    style: const ButtonStyle(
-                        backgroundColor: MaterialStatePropertyAll(Colors.green)),
+                    /*style: const ButtonStyle(
+                        backgroundColor: MaterialStatePropertyAll(Colors.green)),*/
                     onPressed: () {
                       Navigator.pop(context, true);
                     },
                     child: const Text('Accept'),
                   ),
                   ElevatedButton(
-                    style: const ButtonStyle(
-                        backgroundColor: MaterialStatePropertyAll(Colors.red)),
+                    /*style: const ButtonStyle(
+                        backgroundColor: MaterialStatePropertyAll(Colors.red)),*/
+                    style: Theme.of(context).elevatedButtonTheme.style?.copyWith(
+                      backgroundColor: const MaterialStatePropertyAll(Colors.red),
+                    ),
                     onPressed: () {
                       Navigator.pop(context, false);
                     },
@@ -145,18 +149,19 @@ class ProfileDetail extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
+                    Text(
                       'About',
-                      style: TextStyle(
-                        fontStyle: FontStyle.normal,
-                        fontWeight: FontWeight.w500,
-                        fontSize: 20.0,
+                      style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                        fontStyle: FontStyle.italic,
                       ),
                     ),
                     const SizedBox(height: 16.0),
                     Text(
                       user.about,
                       textAlign: TextAlign.justify,
+                      style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                        fontStyle: FontStyle.italic,
+                      ),
                     )
                   ],
                 ),
